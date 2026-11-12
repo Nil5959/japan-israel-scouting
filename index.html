@@ -407,13 +407,16 @@ footer{margin-top:48px;color:var(--quiet);font-size:13px}
 
 <script>
 (function(){
-  var links=[].slice.call(document.querySelectorAll('nav a')),map={};
+  var links=[].slice.call(document.querySelectorAll('nav a')),map={},box=document.querySelector('nav .in');
   links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
   if(!('IntersectionObserver' in window))return;
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
     if(!e.isIntersecting)return;
     links.forEach(function(l){l.classList.remove('on')});
-    var a=map[e.target.id];if(a){a.classList.add('on');a.scrollIntoView({block:'nearest',inline:'nearest'})}
+    var a=map[e.target.id];if(!a)return;a.classList.add('on');
+    // move only the tab strip sideways; scrollIntoView would also scroll the page and kill touch scrolling on iPhone
+    var r=a.getBoundingClientRect(),b=box.getBoundingClientRect();
+    if(r.left<b.left||r.right>b.right)box.scrollLeft+=(r.left+r.width/2)-(b.left+b.width/2);
   })},{rootMargin:'-40% 0px -55% 0px'});
   document.querySelectorAll('section[id]').forEach(function(s){io.observe(s)});
 })();
