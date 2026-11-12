@@ -35,7 +35,14 @@ td .mv bdi{white-space:normal}
 td .mv{display:block;font-size:12px;color:var(--quiet);margin-top:2px}
 
 nav{position:sticky;top:0;z-index:5;background:var(--page);border-bottom:1px solid var(--line)}
-nav .in{max-width:960px;margin:0 auto;padding:0 16px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav .bar-in{max-width:960px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:12px}
+nav .in{flex:1;min-width:0;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.lang{flex:none;display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.lang a{padding:6px 10px;font-size:13px;font-weight:700;border:0;color:var(--quiet);min-width:40px;text-align:center}
+.lang a+a{border-inline-start:1px solid var(--line)}
+.lang a[aria-current]{background:var(--text);color:var(--page)}
+.lang a:hover{color:var(--text)}
+.lang a[aria-current]:hover{color:var(--page)}
 nav a{flex:none;padding:14px 10px;font-size:14px;font-weight:500;color:var(--quiet);text-decoration:none;border-bottom:2px solid transparent}
 nav a:hover{color:var(--text)}
 nav a.on{color:var(--text);border-bottom-color:var(--text)}
@@ -69,7 +76,7 @@ p{margin:0 0 12px;max-width:68ch}
 .bar .t i{display:block;height:100%;background:var(--lead);border-radius:4px}
 .bar .t i.s{background:var(--support)}
 .bar .t i.q{background:var(--quiet);opacity:.55}
-.bar .v{text-align:left;font-variant-numeric:tabular-nums;font-weight:700;font-size:14px}
+.bar .v{text-align:end;font-variant-numeric:tabular-nums;font-weight:700;font-size:14px}
 .bar.wide{grid-template-columns:150px 1fr 76px}
 @media (max-width:560px){.bar,.bar.wide{grid-template-columns:96px 1fr 60px}}
 
@@ -102,10 +109,10 @@ p{margin:0 0 12px;max-width:68ch}
 
 .tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
 table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{padding:10px 14px;text-align:right;border-bottom:1px solid var(--line)}
+th,td{padding:10px 14px;text-align:start;border-bottom:1px solid var(--line)}
 th{font-weight:700;background:var(--raised);font-size:13px;color:var(--quiet)}
 tr:last-child td{border-bottom:0}
-td.n,th.n{text-align:left;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.n,th.n{text-align:end;font-variant-numeric:tabular-nums;white-space:nowrap}
 td .m{color:var(--quiet)}
 
 ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:12px}
@@ -117,7 +124,7 @@ ul.clean li.x::before{background:var(--support)}
 .tl-row{display:grid;grid-template-columns:110px repeat(12,1fr);font-size:12px;border-bottom:1px solid var(--line)}
 .tl-row:last-child{border-bottom:0}
 .tl-row>div{padding:9px 2px;text-align:center;border-inline-start:1px solid var(--line)}
-.tl-row>div:first-child{text-align:right;padding-inline:10px;font-weight:700;border:0;font-size:13px}
+.tl-row>div:first-child{text-align:start;padding-inline:10px;font-weight:700;border:0;font-size:13px}
 .tl-head>div{background:var(--raised);color:var(--quiet);font-weight:700}
 .on-l{background:var(--lead);color:var(--lead-ink)}
 .on-s{background:var(--support);color:#111}
@@ -154,7 +161,7 @@ footer{margin-top:48px;color:var(--quiet);font-size:13px}
 </style>
 </head>
 <body>
-<nav aria-label="ניווט"><div class="in">
+<nav aria-label="ניווט"><div class="bar-in"><div class="in">
   <a href="#top">בקצרה</a>
   <a href="#where">לאן הולכים</a>
   <a href="#fees">דמי העברה</a>
@@ -164,6 +171,10 @@ footer{margin-top:48px;color:var(--quiet);font-size:13px}
   <a href="#agent">סוכן</a>
   <a href="#biz">העסק</a>
   <a href="#sources">מקורות</a>
+</div>
+  <div class="lang" role="group" aria-label="שפה / Language / 言語">
+    <a href="./" lang="he" aria-current="page">עב</a><a href="en.html" lang="en">EN</a><a href="ja.html" lang="ja">日本</a>
+  </div>
 </div></nav>
 
 <main>
@@ -407,7 +418,7 @@ footer{margin-top:48px;color:var(--quiet);font-size:13px}
 
 <script>
 (function(){
-  var links=[].slice.call(document.querySelectorAll('nav a')),map={},box=document.querySelector('nav .in');
+  var links=[].slice.call(document.querySelectorAll('nav .in a')),map={},box=document.querySelector('nav .in');
   links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
   if(!('IntersectionObserver' in window))return;
   var io=new IntersectionObserver(function(es){es.forEach(function(e){

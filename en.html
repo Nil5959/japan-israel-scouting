@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Japan → Ligat Ha'Al</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Palette: Poppy. Deep green (Maccabi Haifa), red (Japan), cream as a small highlight. */
+:root{
+  --page:#FFFFFF; --raised:#F4F4F5; --line:#E5E5E5; --quiet:#6B6B6B; --text:#111111;
+  --lead:#075431; --lead-ink:#FFFFFF; --support:#E02828; --pop:#FCF4D2; --pop-ink:#111111; --track:#ECECEC;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --page:#0A0A0A; --raised:#161616; --line:#2A2A2A; --quiet:#A3A3A3; --text:#F5F5F5;
+    --lead:#17784A; --lead-ink:#FFFFFF; --support:#FF5A5A; --pop:#3A3520; --pop-ink:#F5F5F5; --track:#242424;
+  }
+}
+:root[data-theme="dark"]{
+  --page:#0A0A0A; --raised:#161616; --line:#2A2A2A; --quiet:#A3A3A3; --text:#F5F5F5;
+  --lead:#17784A; --lead-ink:#FFFFFF; --support:#FF5A5A; --pop:#3A3520; --pop-ink:#F5F5F5; --track:#242424;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--page);color:var(--text);font:400 16px/1.6 Heebo,system-ui,sans-serif}
+a{color:inherit;text-decoration-color:var(--quiet);text-underline-offset:3px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--lead);outline-offset:2px;border-radius:4px}
+bdi{unicode-bidi:isolate;white-space:nowrap}
+td .mv bdi{white-space:normal}
+@media (max-width:560px){th,td{padding:10px}td.n{white-space:normal}}
+td .mv{display:block;font-size:12px;color:var(--quiet);margin-top:2px}
+
+nav{position:sticky;top:0;z-index:5;background:var(--page);border-bottom:1px solid var(--line)}
+nav .bar-in{max-width:960px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:12px}
+nav .in{flex:1;min-width:0;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.lang{flex:none;display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.lang a{padding:6px 10px;font-size:13px;font-weight:700;border:0;color:var(--quiet);min-width:40px;text-align:center}
+.lang a+a{border-inline-start:1px solid var(--line)}
+.lang a[aria-current]{background:var(--text);color:var(--page)}
+.lang a:hover{color:var(--text)}
+.lang a[aria-current]:hover{color:var(--page)}
+nav a{flex:none;padding:14px 10px;font-size:14px;font-weight:500;color:var(--quiet);text-decoration:none;border-bottom:2px solid transparent}
+nav a:hover{color:var(--text)}
+nav a.on{color:var(--text);border-bottom-color:var(--text)}
+
+main{max-width:960px;margin:0 auto;padding:0 16px 80px}
+header{padding:44px 0 20px}
+h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 6px}
+.sub{color:var(--quiet);margin:0;font-size:14px}
+section{padding-top:64px}
+h2{font-size:24px;line-height:1.25;font-weight:800;margin:0 0 4px}
+.lede{color:var(--quiet);margin:0 0 24px;font-size:17px}
+h3{font-size:15px;font-weight:700;margin:0 0 12px}
+p{margin:0 0 12px;max-width:68ch}
+
+.verdict{background:var(--lead);color:var(--lead-ink);border-radius:14px;padding:28px}
+.verdict h2{font-size:26px}
+.verdict p{opacity:.9;font-size:17px;margin:8px 0 0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.2);border-radius:10px;overflow:hidden;margin-top:24px}
+.kpi{background:var(--lead);padding:16px}
+.kpi b{display:block;font-size:30px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;opacity:.85;line-height:1.4;display:block;margin-top:4px}
+@media (max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+@media (max-width:820px){.grid2{grid-template-columns:1fr;gap:28px}}
+.panel{background:var(--raised);border-radius:12px;padding:20px}
+
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:120px 1fr 64px;gap:12px;align-items:center;font-size:14px}
+.bar .t{height:20px;background:var(--track);border-radius:4px;overflow:hidden}
+.bar .t i{display:block;height:100%;background:var(--lead);border-radius:4px}
+.bar .t i.s{background:var(--support)}
+.bar .t i.q{background:var(--quiet);opacity:.55}
+.bar .v{text-align:end;font-variant-numeric:tabular-nums;font-weight:700;font-size:14px}
+.bar.wide{grid-template-columns:150px 1fr 76px}
+@media (max-width:560px){.bar,.bar.wide{grid-template-columns:96px 1fr 60px}}
+
+.duo{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:end;height:170px;border-bottom:1px solid var(--line);padding-top:24px}
+.duo .yr{display:flex;gap:4px;align-items:end;justify-content:center;height:100%}
+.duo i{width:20px;background:var(--lead);border-radius:3px 3px 0 0;position:relative}
+.duo i.s{background:var(--support)}
+.duo i span{position:absolute;top:-19px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:700;font-style:normal;font-variant-numeric:tabular-nums}
+.duo-x{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center;font-size:13px;color:var(--quiet);margin-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--quiet);margin-top:12px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-inline-end:6px;background:var(--lead)}
+.legend i.s{background:var(--support)}
+.legend i.q{background:var(--quiet);opacity:.55}
+
+.cap{font-size:12px;color:var(--quiet);margin-top:10px}
+.cap a{color:var(--quiet)}
+
+.stat b{display:block;font-size:40px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;color:var(--quiet);font-size:14px;margin-top:6px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:720px){.stats{grid-template-columns:1fr}}
+
+.take{background:var(--pop);color:var(--pop-ink);border-radius:10px;padding:14px 18px;margin-top:24px;font-size:15px}
+
+.path{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.step{border-top:3px solid var(--line);padding-top:12px;font-size:14px;color:var(--quiet)}
+.step b{display:block;color:var(--text);font-size:16px;margin-bottom:2px}
+.step.hl{border-top-color:var(--support)}
+@media (max-width:720px){.path{grid-template-columns:1fr 1fr}}
+
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:10px 14px;text-align:start;border-bottom:1px solid var(--line)}
+th{font-weight:700;background:var(--raised);font-size:13px;color:var(--quiet)}
+tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:end;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .m{color:var(--quiet)}
+
+ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+ul.clean li{display:grid;grid-template-columns:16px 1fr;gap:8px;font-size:15px}
+ul.clean li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lead);margin-top:9px}
+ul.clean li.x::before{background:var(--support)}
+
+.tl{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.tl-row{display:grid;grid-template-columns:110px repeat(12,1fr);font-size:12px;border-bottom:1px solid var(--line)}
+.tl-row:last-child{border-bottom:0}
+.tl-row>div{padding:9px 2px;text-align:center;border-inline-start:1px solid var(--line)}
+.tl-row>div:first-child{text-align:start;padding-inline:10px;font-weight:700;border:0;font-size:13px}
+.tl-head>div{background:var(--raised);color:var(--quiet);font-weight:700}
+.on-l{background:var(--lead);color:var(--lead-ink)}
+.on-s{background:var(--support);color:#111}
+.on-p{background:var(--pop);color:var(--pop-ink)}
+.on-q{background:color-mix(in srgb,var(--quiet) 30%,transparent)}
+@media (max-width:720px){.tlw{overflow-x:auto}.tl{min-width:620px}}
+
+.best{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+@media (max-width:720px){.best{grid-template-columns:1fr}}
+.best .panel b{display:block;font-size:17px;margin-bottom:4px}
+.best .panel span{font-size:14px;color:var(--quiet)}
+.best .panel.top{background:var(--lead);color:var(--lead-ink)}
+.best .panel.top span{color:rgba(255,255,255,.85)}
+
+.scen{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:720px){.scen{grid-template-columns:1fr}}
+.scen .panel .l{font-size:13px;color:var(--quiet)}
+.scen .panel b{display:block;font-size:34px;font-weight:800;line-height:1.1;margin:4px 0 8px;font-variant-numeric:tabular-nums}
+.scen .panel p{font-size:13px;color:var(--quiet);margin:0}
+.scen .panel.base{background:var(--lead);color:var(--lead-ink)}
+.scen .panel.base .l,.scen .panel.base p{color:rgba(255,255,255,.85)}
+
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:32px 1fr;gap:10px;font-size:15px}
+.steps li::before{content:counter(s);width:26px;height:26px;border-radius:50%;background:var(--text);color:var(--page);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+
+details{border:1px solid var(--line);border-radius:10px;padding:0 16px}
+summary{cursor:pointer;padding:14px 0;font-weight:700}
+details[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+.srcs{columns:2;column-gap:32px;font-size:13px;padding-bottom:12px;margin:0;padding-inline-start:18px}
+.srcs li{break-inside:avoid;margin:5px 0;color:var(--quiet)}
+@media (max-width:720px){.srcs{columns:1}}
+footer{margin-top:48px;color:var(--quiet);font-size:13px}
+</style>
+</head>
+<body>
+<nav aria-label="Navigation"><div class="bar-in"><div class="in">
+  <a href="#top">Summary</a>
+  <a href="#where">Where they go</a>
+  <a href="#fees">Transfer fees</a>
+  <a href="#salary">Salaries</a>
+  <a href="#israel">Israel</a>
+  <a href="#timing">When</a>
+  <a href="#agent">Agent</a>
+  <a href="#biz">Business</a>
+  <a href="#sources">Sources</a>
+</div>
+  <div class="lang" role="group" aria-label="שפה / Language / 言語">
+    <a href="./" lang="he">עב</a><a href="en.html" lang="en" aria-current="page">EN</a><a href="ja.html" lang="ja">日本</a>
+  </div>
+</div></nav>
+
+<main>
+<header>
+  <h1>Players from Japan to Ligat Ha'Al</h1>
+  <p class="sub">Market research for a scout and agent · as of 12.11.2026 · <bdi>€1 ≈ ¥175 ≈ ₪4</bdi></p>
+</header>
+
+<section id="top" style="padding-top:0">
+  <div class="verdict">
+    <h2>An open market, and you are almost alone in it</h2>
+    <p>Japan sends more players to Europe than ever, and most move for free or on loan. We found no agency that connects Japan and Israel. Israel can pay these players more than they earn today.</p>
+    <div class="kpis">
+      <div class="kpi"><b>114</b><span>Japanese players at European clubs</span></div>
+      <div class="kpi"><b>89%</b><span>of moves to Europe were free or loans</span></div>
+      <div class="kpi"><b dir="ltr">37+</b><span>moved to Europe in the 2025 season, a record</span></div>
+      <div class="kpi"><b>0</b><span>Japanese players we found in Ligat Ha'Al</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="where">
+  <h2>Where they go</h2>
+  <p class="lede">Belgium is the way in, and almost half of the players come back to Japan.</p>
+  <div class="grid2">
+    <div>
+      <h3>Japanese players by league, May 2026</h3>
+      <div class="bars" role="img" aria-label="Belgium 19, Germany 17, England 14, Netherlands 9, France 4, Portugal 2, Spain 2, Italy 1">
+        <div class="bar"><span>Belgium</span><div class="t"><i style="width:100%"></i></div><span class="v">19</span></div>
+        <div class="bar"><span>Germany</span><div class="t"><i style="width:89%"></i></div><span class="v">17</span></div>
+        <div class="bar"><span>England</span><div class="t"><i style="width:74%"></i></div><span class="v">14</span></div>
+        <div class="bar"><span>Netherlands</span><div class="t"><i style="width:47%"></i></div><span class="v">9</span></div>
+        <div class="bar"><span>France</span><div class="t"><i style="width:21%"></i></div><span class="v">4</span></div>
+        <div class="bar"><span>Portugal</span><div class="t"><i style="width:11%"></i></div><span class="v">2</span></div>
+        <div class="bar"><span>Spain</span><div class="t"><i style="width:11%"></i></div><span class="v">2</span></div>
+        <div class="bar"><span>Italy</span><div class="t"><i style="width:5%"></i></div><span class="v">1</span></div>
+      </div>
+      <p class="cap">68 players in 10 major leagues · <a href="https://note.com/footballjp/n/na96b4fbad155?hl=en">footballjp</a></p>
+    </div>
+    <div>
+      <h3>Leaving vs. returning, by season</h3>
+      <div class="duo" role="img" aria-label="Left for Europe: 19, 23, 32, 32, 37. Returned from abroad: 14, 10, 15, 28, 16">
+        <div class="yr"><i style="height:51%"><span>19</span></i><i class="s" style="height:38%"><span>14</span></i></div>
+        <div class="yr"><i style="height:62%"><span>23</span></i><i class="s" style="height:27%"><span>10</span></i></div>
+        <div class="yr"><i style="height:86%"><span>32</span></i><i class="s" style="height:41%"><span>15</span></i></div>
+        <div class="yr"><i style="height:86%"><span>32</span></i><i class="s" style="height:76%"><span>28</span></i></div>
+        <div class="yr"><i style="height:100%"><span dir="ltr">37+</span></i><i class="s" style="height:43%"><span>16</span></i></div>
+      </div>
+      <div class="duo-x"><span>21/22</span><span>22/23</span><span>23/24</span><span>24/25</span><span>25/26</span></div>
+      <div class="legend"><span><i></i>Left for Europe</span><span><i class="s"></i>Returned to Japan</span></div>
+      <p class="cap">Summer window plus the winter window after it · <a href="https://qoly.jp/q1/17819462">Qoly</a></p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px">The path today</h3>
+  <div class="path">
+    <div class="step"><b>University / youth</b>Age 18-22</div>
+    <div class="step"><b>J1 / J2</b>Median age at transfer: 24.8</div>
+    <div class="step hl"><b>Stepping-stone league → Israel</b>Belgium, Netherlands, Denmark, Scotland</div>
+    <div class="step"><b>Sale or return</b>Germany and England, or back to Japan</div>
+  </div>
+  <div class="take"><b>What this means for you:</b> Players mostly come back because they got no minutes or did not adjust, not because they are not good enough. A Japanese-Israeli who guides them in language and culture solves exactly this problem.</div>
+</section>
+
+<section id="fees">
+  <h2>Deal 1: what the first transfer costs</h2>
+  <p class="lede">Buying is almost free. The money is made on the next sale.</p>
+  <div class="stats">
+    <div class="stat"><b>89%</b><span>of moves to Europe in 2023-25 were free or loans</span></div>
+    <div class="stat"><b><bdi>~€1M</bdi></b><span>median for moves that made the news (from under <bdi>€0.1M</bdi> to <bdi>€5.8M</bdi>)</span></div>
+    <div class="stat"><b><bdi>€340K</bdi></b><span>training compensation paid for a "free" university player (Sota Uchino, Denmark)</span></div>
+  </div>
+
+  <h3 style="margin-top:36px">Bought low, sold high</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Player and first move</th><th class="n">Bought</th><th class="n">Next sale</th></tr></thead>
+    <tbody>
+      <tr><td><b>Hiroki Ito</b><span class="mv"><bdi>Iwata → Stuttgart</bdi> · 2022</span></td><td class="n">Under <bdi>€0.1M</bdi></td><td class="n"><bdi>€23.5M</bdi></td></tr>
+      <tr><td><b>Yui Suzuki</b><span class="mv"><bdi>Shimizu → Brøndby</bdi> · 2023</span></td><td class="n"><bdi>€0.67M</bdi></td><td class="n"><bdi>€10M</bdi></td></tr>
+      <tr><td><b>Ayase Ueda</b><span class="mv"><bdi>Kashima → Cercle Brugge</bdi> · 2022</span></td><td class="n"><bdi>€1M</bdi></td><td class="n"><bdi>€8M</bdi></td></tr>
+      <tr><td><b>Kyogo Furuhashi</b><span class="mv"><bdi>Kobe → Celtic</bdi> · 2021</span></td><td class="n"><bdi>€5.4M</bdi></td><td class="n"><bdi>€12M</bdi></td></tr>
+      <tr><td><b>Kota Takai</b><span class="mv"><bdi>Kawasaki → Tottenham</bdi> · 2025</span></td><td class="n"><bdi>€5.8M</bdi></td><td class="n">Not sold yet</td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap">Amounts are press estimates · <a href="https://www.hudl.com/blog/jleague-player-export-strategy-transfer-revenue-jp">Hudl</a> · <a href="https://www.soccer-king.jp/news/world/world_other/20260819/2040034.html">Soccer King</a></p>
+  <div class="take"><b>Why it is almost free:</b> Contracts in Japan are short. Six months before a contract ends, the player can sign abroad, and the buying club pays no transfer fee. <b>Note:</b> Players up to age 23 carry training compensation. So the cheapest signing is a player over 23 whose contract is ending.</div>
+</section>
+
+<section id="salary">
+  <h2>Deal 2: what they earn per year</h2>
+  <p class="lede">A mid-level J1 or J2 player earns far less today than a good foreigner gets in Israel.</p>
+  <div class="bars" role="img" aria-label="Annual pay in euros: J2 minimum 21 thousand, J1 minimum 27 thousand, first-year player cap 69 thousand, J1 average about 177 thousand, Israel 7th foreigner minimum 200 thousand, foreigner at Maccabi Haifa 400 thousand, Netherlands foreigner minimum 561 thousand">
+    <div class="bar wide"><span>J2 minimum</span><div class="t"><i class="q" style="width:4%"></i></div><span class="v"><bdi>€21K</bdi></span></div>
+    <div class="bar wide"><span>J1 minimum</span><div class="t"><i class="q" style="width:5%"></i></div><span class="v"><bdi>€27K</bdi></span></div>
+    <div class="bar wide"><span>First year, maximum</span><div class="t"><i class="q" style="width:12%"></i></div><span class="v"><bdi>€69K</bdi></span></div>
+    <div class="bar wide"><span>J1 average (estimate)</span><div class="t"><i class="q" style="width:32%"></i></div><span class="v"><bdi>~€177K</bdi></span></div>
+    <div class="bar wide"><span>Israel: foreigner 7, minimum</span><div class="t"><i style="width:36%"></i></div><span class="v"><bdi>€200K</bdi></span></div>
+    <div class="bar wide"><span>Foreigner at Maccabi Haifa</span><div class="t"><i style="width:71%"></i></div><span class="v"><bdi>~€400K</bdi></span></div>
+    <div class="bar wide"><span>Netherlands: foreigner minimum</span><div class="t"><i class="s" style="width:100%"></i></div><span class="v"><bdi>€561K</bdi></span></div>
+  </div>
+  <div class="legend"><span><i class="q"></i>Japan</span><span><i></i>Israel</span><span><i class="s"></i>Netherlands</span></div>
+  <p class="cap">Gross per year · <a href="https://www.jleague.jp/news/article/29016/">J.League</a> · <a href="https://www.ice.co.il/sport_news/news/article/1136046">ice</a> · <a href="https://www.jpost.com/israel-news/sports/article-860280">JPost</a> · <a href="https://www.everaert.nl/en/conditions-for-attracting-international-football-talent-to-be-relaxed/">Everaert</a> · J1 average: <a href="https://www.nenshuu.net/magazine/pages.php?pages_id=313">nenshuu</a> (unofficial)</p>
+  <div class="take"><b>This is your sales pitch:</b> The Netherlands cannot sign a player like this for less than <bdi>€561K</bdi>. Israel can sign him for less, and it is still far more than he earns in Japan.</div>
+</section>
+
+<section id="israel">
+  <h2>Israel: what to know</h2>
+  <p class="lede">There is no precedent, there is a foreigner quota, and the security situation is the biggest obstacle.</p>
+  <div class="grid2">
+    <ul class="clean">
+      <li><span><b>Precedent:</b> We found no Japanese player in Ligat Ha'Al. We found only one in Liga Leumit (2nd tier): Takuya Murayama, Hapoel Petah Tikva, 2019.</span></li>
+      <li><span><b>Foreigner quota:</b> Up to 8. A 7th foreigner only on a contract of <bdi>€200K</bdi> or more, an 8th only at <bdi>€500K</bdi> or more. The quota for 2026-27 is not final yet.</span></li>
+      <li><span><b>An existing bridge:</b> Neta Lavi at Gamba Osaka, Dean David in Yokohama. Japan already knows Israeli players.</span></li>
+    </ul>
+    <ul class="clean">
+      <li class="x"><span><b>Security:</b> Families in Japan check the warning level of their foreign ministry. At level 3 almost no one will come. Right now most of Israel is at level 2.</span></li>
+      <li class="x"><span><b>An existing difficulty:</b> Clubs already struggle to bring in foreigners and turn to Africa and the Balkans.</span></li>
+      <li class="x"><span><b>Required in the contract:</b> An exit clause in case of a security escalation.</span></li>
+    </ul>
+  </div>
+  <p class="cap"><a href="https://en.wikipedia.org/wiki/Takuya_Murayama">Murayama</a> · <a href="https://www.jpost.com/israel-news/sports/article-860280">Quota</a> · <a href="https://www.anzen.mofa.go.jp/info/arealeaveinfolist_13.html">Japanese Foreign Ministry</a> · <a href="https://www.ynetnews.com/culture/article/bj4ar1x00c">Ynet</a></p>
+</section>
+
+<section id="timing">
+  <h2>When to bring players</h2>
+  <p class="lede">From 2026-27 the season in Japan ends in June, just as the window in Israel opens.</p>
+  <div class="tlw"><div class="tl" role="img" aria-label="Calendar: season in Japan from August 2026 to June 2027; window in Japan July to September and February to March; window in Israel end of June to mid-September">
+    <div class="tl-row tl-head"><div></div><div>Jul</div><div>Aug</div><div>Sep</div><div>Oct</div><div>Nov</div><div>Dec</div><div>Jan</div><div>Feb</div><div>Mar</div><div>Apr</div><div>May</div><div>Jun</div></div>
+    <div class="tl-row"><div>Season in Japan</div><div></div><div class="on-q">8.8</div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q">6.6</div></div>
+    <div class="tl-row"><div>Window in Japan</div><div class="on-l">1.7</div><div class="on-l"></div><div class="on-l">16.9</div><div></div><div></div><div></div><div></div><div class="on-l">1.2</div><div class="on-l">3.3</div><div></div><div></div><div></div></div>
+    <div class="tl-row"><div>Window in Israel</div><div class="on-s">29.6</div><div class="on-s"></div><div class="on-s">16.9</div><div></div><div></div><div></div><div class="on-p">?</div><div></div><div></div><div></div><div></div><div class="on-s">Opens</div></div>
+    <div class="tl-row"><div>Scouting</div><div></div><div></div><div></div><div></div><div class="on-p">Now</div><div class="on-p"></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div></div>
+  <p class="cap">The January window in Israel and the contract end date in Japan are not verified yet · <a href="https://sakanowa.jp/topics/111172">sakanowa</a> · <a href="https://sports.walla.co.il/item/3841301">Walla</a></p>
+  <div class="best">
+    <div class="panel top"><b>June-July 2027</b><span>The best time: contracts in Japan end and the window in Israel opens.</span></div>
+    <div class="panel"><b>February-March 2027</b><span>A loan for a player who is not playing in Japan.</span></div>
+    <div class="panel"><b>Now until January</b><span>Scouting, video and meetings in Japan.</span></div>
+  </div>
+</section>
+
+<section id="agent">
+  <h2>How to become an agent</h2>
+  <p class="lede">Four steps. Right now there is no binding cap on the fee.</p>
+  <div class="grid2">
+    <ol class="steps">
+      <li><span>Pass the <a href="https://legal.fifa.com/transfer-system/agents/how-to-become-a-licenced-football-agent">FIFA</a> agent exam: 20 questions, and you need 75% to pass. In 2026 it was held in April.</span></li>
+      <li><span>Pay for the license: <bdi>$600</bdi> in the first year.</span></li>
+      <li><span>Register with the Israel Football Association and with the <bdi>JFA</bdi> in Japan.</span></li>
+      <li><span>Partner with an existing Japanese agency (for example <bdi>SARCLE</bdi>, about 50 players) and split the fee.</span></li>
+    </ol>
+    <div class="panel">
+      <h3>Fees</h3>
+      <p style="font-size:15px">The FIFA caps have been suspended since 2023 because of European courts: 3-5% of the player's pay, and up to 10% when you also represent the buying club. In practice the market sets the price, usually <b>5-10% of the player's pay</b>.</p>
+      <p style="font-size:14px;color:var(--quiet);margin:0">If the rules return, you will not be allowed to represent both the player and the club that sells him.</p>
+      <p class="cap" style="margin-bottom:0"><a href="https://agentpro.academy/guide/ffar-fifa-agent-regulations-status">AgentPro</a> · <a href="https://inside.fifa.com/en/news/club-agent-service-fees-reach-new-heights-2025">FIFA</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="biz">
+  <h2>How the business earns</h2>
+  <p class="lede">Three sources of income. The numbers are our own calculation for year three, not measured data.</p>
+  <div class="scen">
+    <div class="panel"><span class="l">Conservative</span><b><bdi>~€17K</bdi></b><p>One player a year, and only the fee on pay.</p></div>
+    <div class="panel base"><span class="l">Base</span><b><bdi>~€175K</bdi></b><p>2 players a year, a retainer from Maccabi, and one sell-on every two years.</p></div>
+    <div class="panel"><span class="l">Optimistic</span><b><bdi>~€450K</bdi></b><p>3-4 players a year, more clubs, and two sell-ons a year.</p></div>
+  </div>
+  <p class="cap">Assumptions: pay <bdi>€250K</bdi>, 3-year contract, 7% fee, retainer <bdi>€2,500</bdi> a month, sell-on at <bdi>€1.5M</bdi> with a 10% fee, costs of <bdi>~€35K</bdi> a year. The calculation assumes no player returns to Japan early.</p>
+
+  <div class="grid2" style="margin-top:32px">
+    <div>
+      <h3>Three sources of income</h3>
+      <ol class="steps">
+        <li><span><b>Fee on pay:</b> 5-10% of pay, every year of the contract.</span></li>
+        <li><span><b>Retainer from a club:</b> Maccabi pays you every month as the "representative in Japan", plus a bonus for each signing.</span></li>
+        <li><span><b>The next sale:</b> When the player is sold from Israel to Europe. This is where the big money is.</span></li>
+      </ol>
+    </div>
+    <div>
+      <h3>The first player has to succeed</h3>
+      <ul class="clean">
+        <li><span>Age 24-27, so there is no training compensation</span></li>
+        <li><span>A regular in J1 or a star in J2, in the last year of his contract</span></li>
+        <li><span>A family willing to move, so he does not come back fast</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px">Ideas to make the process better</h3>
+  <div class="grid2">
+    <ul class="clean">
+      <li><span><b>Target list:</b> All J1 and J2 players aged 23-27 whose contracts end in 2027, with more than 1,500 minutes. <bdi>Wyscout</bdi> covers all the leagues in Japan.</span></li>
+      <li><span><b>The university league:</b> We found no European party that scans it in an organized way, and there your language gives you an edge.</span></li>
+      <li><span><b>A loan with an option</b> for the first player, to lower the risk for the club.</span></li>
+    </ul>
+    <ul class="clean">
+      <li><span><b>An official partnership</b> between Maccabi and a J2 club, like Feyenoord and Urawa, or Everton and Nagoya.</span></li>
+      <li><span><b>Settling-in package:</b> Apartment, language, the Japanese community in Tel Aviv and support for the family.</span></li>
+      <li><span><b>Japanese sponsor:</b> A Japanese player brings companies and fans from Japan, and that is a selling point for the club.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="sources">
+  <h2>Sources</h2>
+  <p class="lede">There are no meta-analyses or academic studies on this topic. The data here comes from official bodies and the press.</p>
+  <details>
+    <summary>All sources (25)</summary>
+    <ul class="srcs">
+      <li><a href="https://football-observatory.com/IMG/sites/b5wp/2019/wp292/en/">CIES Football Observatory</a>: Japanese players abroad</li>
+      <li><a href="https://www.hudl.com/blog/japan-pathways-europe-wyscout">Hudl / NHK</a>: 114 players in Europe, the pathways</li>
+      <li><a href="https://www.hudl.com/blog/jleague-player-export-strategy-transfer-revenue-jp">Hudl</a>: 11.3% of moves paid, age 24.8</li>
+      <li><a href="https://note.com/footballjp/n/na96b4fbad155?hl=en">footballjp</a>: breakdown by league</li>
+      <li><a href="https://qoly.jp/q1/17819462">Qoly</a>: leaving and returning</li>
+      <li><a href="https://jleagueregista.com/europe-syndrome-jleague-returns/">JLeagueRegista</a>: returning from Europe</li>
+      <li><a href="https://www.soccer-king.jp/news/world/world_other/20260819/2040034.html">Soccer King</a>: transfer fees and sales</li>
+      <li><a href="https://x.com/tyuu__bou/status/1938443022037033170">Uchino's training compensation</a></li>
+      <li><a href="https://grapo.net/2025/12/25/27655/">grapo</a>: "0 yen transfer"</li>
+      <li><a href="https://www.jleague.jp/news/article/29016/">J.League</a>: contract reform and minimum pay</li>
+      <li><a href="https://www.nenshuu.net/magazine/pages.php?pages_id=313">nenshuu</a>: average pay (unofficial)</li>
+      <li><a href="https://www.everaert.nl/en/conditions-for-attracting-international-football-talent-to-be-relaxed/">Everaert</a>: foreigner minimum in the Netherlands</li>
+      <li><a href="https://www.ice.co.il/sport_news/news/article/1136046">ice</a>: budget and pay at Maccabi Haifa</li>
+      <li><a href="https://www.jpost.com/israel-news/sports/article-860280">Jerusalem Post</a>: foreigner quota</li>
+      <li><a href="https://www.ynetnews.com/culture/article/bj4ar1x00c">Ynet</a>: the difficulty of bringing in foreigners</li>
+      <li><a href="https://en.wikipedia.org/wiki/Takuya_Murayama">Wikipedia</a>: Murayama</li>
+      <li><a href="https://www.anzen.mofa.go.jp/info/arealeaveinfolist_13.html">Japanese Foreign Ministry</a>: warning level</li>
+      <li><a href="https://sakanowa.jp/topics/111172">sakanowa</a>: the windows in Japan</li>
+      <li><a href="https://sports.walla.co.il/item/3841301">Walla</a>: the summer window in Israel</li>
+      <li><a href="https://legal.fifa.com/transfer-system/agents/how-to-become-a-licenced-football-agent">FIFA Legal</a>: the agent exam</li>
+      <li><a href="https://inside.fifa.com/en/news/club-agent-service-fees-reach-new-heights-2025">Inside FIFA</a>: agent fees</li>
+      <li><a href="https://agentpro.academy/guide/ffar-fifa-agent-regulations-status">AgentPro</a>: status of the caps</li>
+      <li><a href="https://blog.transferroom.com/renowned-japanese-agency-opens-door-to-the-world-on-transferroom">TransferRoom</a>: SARCLE</li>
+      <li><a href="https://www.hudl.com/blog/hudl-renews-multi-year-partnership-with-japan-professional-football-league">Hudl</a>: Wyscout in the J.League</li>
+      <li><a href="https://readastonvilla.com/2026/08/19/aston-villa-confirm-30m-zion-suzuki-signing-as-emi-martinez-pressure-grows/">Read Aston Villa</a>: Zion Suzuki</li>
+    </ul>
+  </details>
+  <footer>The plan was built by Fable 5.2, Claude did the research, and Fable 5.2 checked the numbers. This is not legal or tax advice.</footer>
+</section>
+</main>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('nav .in a')),map={},box=document.querySelector('nav .in');
+  links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;
+    links.forEach(function(l){l.classList.remove('on')});
+    var a=map[e.target.id];if(!a)return;a.classList.add('on');
+    // move only the tab strip sideways; scrollIntoView would also scroll the page and kill touch scrolling on iPhone
+    var r=a.getBoundingClientRect(),b=box.getBoundingClientRect();
+    if(r.left<b.left||r.right>b.right)box.scrollLeft+=(r.left+r.width/2)-(b.left+b.width/2);
+  })},{rootMargin:'-40% 0px -55% 0px'});
+  document.querySelectorAll('section[id]').forEach(function(s){io.observe(s)});
+})();
+</script>
+</body>
+</html>

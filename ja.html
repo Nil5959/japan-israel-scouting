@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日本 → イスラエル・プレミアリーグ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Palette: Poppy. Deep green (Maccabi Haifa), red (Japan), cream as a small highlight. */
+:root{
+  --page:#FFFFFF; --raised:#F4F4F5; --line:#E5E5E5; --quiet:#6B6B6B; --text:#111111;
+  --lead:#075431; --lead-ink:#FFFFFF; --support:#E02828; --pop:#FCF4D2; --pop-ink:#111111; --track:#ECECEC;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --page:#0A0A0A; --raised:#161616; --line:#2A2A2A; --quiet:#A3A3A3; --text:#F5F5F5;
+    --lead:#17784A; --lead-ink:#FFFFFF; --support:#FF5A5A; --pop:#3A3520; --pop-ink:#F5F5F5; --track:#242424;
+  }
+}
+:root[data-theme="dark"]{
+  --page:#0A0A0A; --raised:#161616; --line:#2A2A2A; --quiet:#A3A3A3; --text:#F5F5F5;
+  --lead:#17784A; --lead-ink:#FFFFFF; --support:#FF5A5A; --pop:#3A3520; --pop-ink:#F5F5F5; --track:#242424;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--page);color:var(--text);font:400 16px/1.6 "Noto Sans JP",Heebo,system-ui,sans-serif}
+a{color:inherit;text-decoration-color:var(--quiet);text-underline-offset:3px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--lead);outline-offset:2px;border-radius:4px}
+bdi{unicode-bidi:isolate;white-space:nowrap}
+td .mv bdi{white-space:normal}
+@media (max-width:560px){th,td{padding:10px}td.n{white-space:normal}}
+td .mv{display:block;font-size:12px;color:var(--quiet);margin-top:2px}
+
+nav{position:sticky;top:0;z-index:5;background:var(--page);border-bottom:1px solid var(--line)}
+nav .bar-in{max-width:960px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:12px}
+nav .in{flex:1;min-width:0;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.lang{flex:none;display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.lang a{padding:6px 10px;font-size:13px;font-weight:700;border:0;color:var(--quiet);min-width:40px;text-align:center}
+.lang a+a{border-inline-start:1px solid var(--line)}
+.lang a[aria-current]{background:var(--text);color:var(--page)}
+.lang a:hover{color:var(--text)}
+.lang a[aria-current]:hover{color:var(--page)}
+nav a{flex:none;padding:14px 10px;font-size:14px;font-weight:500;color:var(--quiet);text-decoration:none;border-bottom:2px solid transparent}
+nav a:hover{color:var(--text)}
+nav a.on{color:var(--text);border-bottom-color:var(--text)}
+
+main{max-width:960px;margin:0 auto;padding:0 16px 80px}
+header{padding:44px 0 20px}
+h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 6px}
+.sub{color:var(--quiet);margin:0;font-size:14px}
+section{padding-top:64px}
+h2{font-size:24px;line-height:1.25;font-weight:800;margin:0 0 4px}
+.lede{color:var(--quiet);margin:0 0 24px;font-size:17px}
+h3{font-size:15px;font-weight:700;margin:0 0 12px}
+p{margin:0 0 12px;max-width:68ch}
+
+.verdict{background:var(--lead);color:var(--lead-ink);border-radius:14px;padding:28px}
+.verdict h2{font-size:26px}
+.verdict p{opacity:.9;font-size:17px;margin:8px 0 0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.2);border-radius:10px;overflow:hidden;margin-top:24px}
+.kpi{background:var(--lead);padding:16px}
+.kpi b{display:block;font-size:30px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;opacity:.85;line-height:1.4;display:block;margin-top:4px}
+@media (max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+@media (max-width:820px){.grid2{grid-template-columns:1fr;gap:28px}}
+.panel{background:var(--raised);border-radius:12px;padding:20px}
+
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:120px 1fr 64px;gap:12px;align-items:center;font-size:14px}
+.bar .t{height:20px;background:var(--track);border-radius:4px;overflow:hidden}
+.bar .t i{display:block;height:100%;background:var(--lead);border-radius:4px}
+.bar .t i.s{background:var(--support)}
+.bar .t i.q{background:var(--quiet);opacity:.55}
+.bar .v{text-align:end;font-variant-numeric:tabular-nums;font-weight:700;font-size:14px}
+.bar.wide{grid-template-columns:150px 1fr 76px}
+@media (max-width:560px){.bar,.bar.wide{grid-template-columns:96px 1fr 60px}}
+
+.duo{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:end;height:170px;border-bottom:1px solid var(--line);padding-top:24px}
+.duo .yr{display:flex;gap:4px;align-items:end;justify-content:center;height:100%}
+.duo i{width:20px;background:var(--lead);border-radius:3px 3px 0 0;position:relative}
+.duo i.s{background:var(--support)}
+.duo i span{position:absolute;top:-19px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:700;font-style:normal;font-variant-numeric:tabular-nums}
+.duo-x{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center;font-size:13px;color:var(--quiet);margin-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--quiet);margin-top:12px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-inline-end:6px;background:var(--lead)}
+.legend i.s{background:var(--support)}
+.legend i.q{background:var(--quiet);opacity:.55}
+
+.cap{font-size:12px;color:var(--quiet);margin-top:10px}
+.cap a{color:var(--quiet)}
+
+.stat b{display:block;font-size:40px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;color:var(--quiet);font-size:14px;margin-top:6px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:720px){.stats{grid-template-columns:1fr}}
+
+.take{background:var(--pop);color:var(--pop-ink);border-radius:10px;padding:14px 18px;margin-top:24px;font-size:15px}
+
+.path{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.step{border-top:3px solid var(--line);padding-top:12px;font-size:14px;color:var(--quiet)}
+.step b{display:block;color:var(--text);font-size:16px;margin-bottom:2px}
+.step.hl{border-top-color:var(--support)}
+@media (max-width:720px){.path{grid-template-columns:1fr 1fr}}
+
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:10px 14px;text-align:start;border-bottom:1px solid var(--line)}
+th{font-weight:700;background:var(--raised);font-size:13px;color:var(--quiet)}
+tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:end;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .m{color:var(--quiet)}
+
+ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+ul.clean li{display:grid;grid-template-columns:16px 1fr;gap:8px;font-size:15px}
+ul.clean li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lead);margin-top:9px}
+ul.clean li.x::before{background:var(--support)}
+
+.tl{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.tl-row{display:grid;grid-template-columns:110px repeat(12,1fr);font-size:12px;border-bottom:1px solid var(--line)}
+.tl-row:last-child{border-bottom:0}
+.tl-row>div{padding:9px 2px;text-align:center;border-inline-start:1px solid var(--line)}
+.tl-row>div:first-child{text-align:start;padding-inline:10px;font-weight:700;border:0;font-size:13px}
+.tl-head>div{background:var(--raised);color:var(--quiet);font-weight:700}
+.on-l{background:var(--lead);color:var(--lead-ink)}
+.on-s{background:var(--support);color:#111}
+.on-p{background:var(--pop);color:var(--pop-ink)}
+.on-q{background:color-mix(in srgb,var(--quiet) 30%,transparent)}
+@media (max-width:720px){.tlw{overflow-x:auto}.tl{min-width:620px}}
+
+.best{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+@media (max-width:720px){.best{grid-template-columns:1fr}}
+.best .panel b{display:block;font-size:17px;margin-bottom:4px}
+.best .panel span{font-size:14px;color:var(--quiet)}
+.best .panel.top{background:var(--lead);color:var(--lead-ink)}
+.best .panel.top span{color:rgba(255,255,255,.85)}
+
+.scen{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:720px){.scen{grid-template-columns:1fr}}
+.scen .panel .l{font-size:13px;color:var(--quiet)}
+.scen .panel b{display:block;font-size:34px;font-weight:800;line-height:1.1;margin:4px 0 8px;font-variant-numeric:tabular-nums}
+.scen .panel p{font-size:13px;color:var(--quiet);margin:0}
+.scen .panel.base{background:var(--lead);color:var(--lead-ink)}
+.scen .panel.base .l,.scen .panel.base p{color:rgba(255,255,255,.85)}
+
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:32px 1fr;gap:10px;font-size:15px}
+.steps li::before{content:counter(s);width:26px;height:26px;border-radius:50%;background:var(--text);color:var(--page);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+
+details{border:1px solid var(--line);border-radius:10px;padding:0 16px}
+summary{cursor:pointer;padding:14px 0;font-weight:700}
+details[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+.srcs{columns:2;column-gap:32px;font-size:13px;padding-bottom:12px;margin:0;padding-inline-start:18px}
+.srcs li{break-inside:avoid;margin:5px 0;color:var(--quiet)}
+@media (max-width:720px){.srcs{columns:1}}
+footer{margin-top:48px;color:var(--quiet);font-size:13px}
+</style>
+</head>
+<body>
+<nav aria-label="ナビゲーション"><div class="bar-in"><div class="in">
+  <a href="#top">要点</a>
+  <a href="#where">行き先</a>
+  <a href="#fees">移籍金</a>
+  <a href="#salary">年俸</a>
+  <a href="#israel">イスラエル</a>
+  <a href="#timing">時期</a>
+  <a href="#agent">エージェント</a>
+  <a href="#biz">収益</a>
+  <a href="#sources">出典</a>
+</div>
+  <div class="lang" role="group" aria-label="שפה / Language / 言語">
+    <a href="./" lang="he">עב</a><a href="en.html" lang="en">EN</a><a href="ja.html" lang="ja" aria-current="page">日本</a>
+  </div>
+</div></nav>
+
+<main>
+<header>
+  <h1>日本人選手をイスラエル・プレミアリーグへ</h1>
+  <p class="sub">スカウト・エージェント向け市場調査 · 2026年11月12日時点 · <bdi>€1 ≈ ¥175 ≈ ₪4</bdi></p>
+</header>
+
+<section id="top" style="padding-top:0">
+  <div class="verdict">
+    <h2>市場は開いています。競合はほぼいません</h2>
+    <p>日本からヨーロッパへ渡る選手は過去最多です。多くは移籍金0円かレンタルです。日本とイスラエルをつなぐエージェントは見つかりませんでした。イスラエルは、日本での年俸より高い額を提示できます。</p>
+    <div class="kpis">
+      <div class="kpi"><b>114</b><span>ヨーロッパのクラブにいる日本人選手</span></div>
+      <div class="kpi"><b>89%</b><span>ヨーロッパ移籍のうち、0円またはレンタルの割合</span></div>
+      <div class="kpi"><b dir="ltr">37+</b><span>2025年シーズンの欧州移籍、過去最多</span></div>
+      <div class="kpi"><b>0</b><span>イスラエル・プレミアリーグで確認できた日本人選手</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="where">
+  <h2>選手の行き先</h2>
+  <p class="lede">ベルギーが入り口です。帰国する選手は半数近くいます。</p>
+  <div class="grid2">
+    <div>
+      <h3>リーグ別の日本人選手数（2026年5月）</h3>
+      <div class="bars" role="img" aria-label="ベルギー19、ドイツ17、イングランド14、オランダ9、フランス4、ポルトガル2、スペイン2、イタリア1">
+        <div class="bar"><span>ベルギー</span><div class="t"><i style="width:100%"></i></div><span class="v">19</span></div>
+        <div class="bar"><span>ドイツ</span><div class="t"><i style="width:89%"></i></div><span class="v">17</span></div>
+        <div class="bar"><span>イングランド</span><div class="t"><i style="width:74%"></i></div><span class="v">14</span></div>
+        <div class="bar"><span>オランダ</span><div class="t"><i style="width:47%"></i></div><span class="v">9</span></div>
+        <div class="bar"><span>フランス</span><div class="t"><i style="width:21%"></i></div><span class="v">4</span></div>
+        <div class="bar"><span>ポルトガル</span><div class="t"><i style="width:11%"></i></div><span class="v">2</span></div>
+        <div class="bar"><span>スペイン</span><div class="t"><i style="width:11%"></i></div><span class="v">2</span></div>
+        <div class="bar"><span>イタリア</span><div class="t"><i style="width:5%"></i></div><span class="v">1</span></div>
+      </div>
+      <p class="cap">主要10リーグで68人 · <a href="https://note.com/footballjp/n/na96b4fbad155?hl=en">footballjp</a></p>
+    </div>
+    <div>
+      <h3>シーズン別の渡欧と帰国</h3>
+      <div class="duo" role="img" aria-label="ヨーロッパへ移籍：19、23、32、32、37。海外から帰国：14、10、15、28、16">
+        <div class="yr"><i style="height:51%"><span>19</span></i><i class="s" style="height:38%"><span>14</span></i></div>
+        <div class="yr"><i style="height:62%"><span>23</span></i><i class="s" style="height:27%"><span>10</span></i></div>
+        <div class="yr"><i style="height:86%"><span>32</span></i><i class="s" style="height:41%"><span>15</span></i></div>
+        <div class="yr"><i style="height:86%"><span>32</span></i><i class="s" style="height:76%"><span>28</span></i></div>
+        <div class="yr"><i style="height:100%"><span dir="ltr">37+</span></i><i class="s" style="height:43%"><span>16</span></i></div>
+      </div>
+      <div class="duo-x"><span>21/22</span><span>22/23</span><span>23/24</span><span>24/25</span><span>25/26</span></div>
+      <div class="legend"><span><i></i>ヨーロッパへ移籍</span><span><i class="s"></i>日本へ帰国</span></div>
+      <p class="cap">夏の移籍期間と、続く冬の移籍期間を合計 · <a href="https://qoly.jp/q1/17819462">Qoly</a></p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px">現在のキャリアパス</h3>
+  <div class="path">
+    <div class="step"><b>大学・ユース</b>18〜22歳</div>
+    <div class="step"><b>J1 / J2</b>移籍時の年齢の中央値：24.8歳</div>
+    <div class="step hl"><b>踏み台リーグ → イスラエル</b>ベルギー、オランダ、デンマーク、スコットランド</div>
+    <div class="step"><b>売却か帰国</b>ドイツ・イングランドへ、または日本へ</div>
+  </div>
+  <div class="take"><b>ここから分かること：</b>選手が帰国する主な理由は、出場時間がないことや環境に馴染めないことです。実力不足ではありません。言語と文化の面で寄り添える日本・イスラエルのエージェントは、まさにこの問題を解決できます。</div>
+</section>
+
+<section id="fees">
+  <h2>取引1：最初の移籍にかかる費用</h2>
+  <p class="lede">購入費はほぼ0円です。利益は次の売却で生まれます。</p>
+  <div class="stats">
+    <div class="stat"><b>89%</b><span>2023〜25年のヨーロッパ移籍のうち、0円またはレンタルの割合</span></div>
+    <div class="stat"><b><bdi>~€1M</bdi></b><span>報道された移籍の中央値（<bdi>€0.1M</bdi>未満から最大<bdi>€5.8M</bdi>まで）</span></div>
+    <div class="stat"><b><bdi>€340K</bdi></b><span>大学から「0円」で移籍した選手に支払われた育成補償金（内野航太郎、デンマーク）</span></div>
+  </div>
+
+  <h3 style="margin-top:36px">安く買って高く売る</h3>
+  <div class="tw"><table>
+    <thead><tr><th>選手と最初の移籍</th><th class="n">購入額</th><th class="n">次の売却額</th></tr></thead>
+    <tbody>
+      <tr><td><b>伊藤洋輝</b><span class="mv"><bdi>Iwata → Stuttgart</bdi> · 2022</span></td><td class="n"><bdi>€0.1M</bdi>未満</td><td class="n"><bdi>€23.5M</bdi></td></tr>
+      <tr><td><b>鈴木唯人</b><span class="mv"><bdi>Shimizu → Brøndby</bdi> · 2023</span></td><td class="n"><bdi>€0.67M</bdi></td><td class="n"><bdi>€10M</bdi></td></tr>
+      <tr><td><b>上田綺世</b><span class="mv"><bdi>Kashima → Cercle Brugge</bdi> · 2022</span></td><td class="n"><bdi>€1M</bdi></td><td class="n"><bdi>€8M</bdi></td></tr>
+      <tr><td><b>古橋亨梧</b><span class="mv"><bdi>Kobe → Celtic</bdi> · 2021</span></td><td class="n"><bdi>€5.4M</bdi></td><td class="n"><bdi>€12M</bdi></td></tr>
+      <tr><td><b>高井幸大</b><span class="mv"><bdi>Kawasaki → Tottenham</bdi> · 2025</span></td><td class="n"><bdi>€5.8M</bdi></td><td class="n">未売却</td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap">金額は報道による推定です · <a href="https://www.hudl.com/blog/jleague-player-export-strategy-transfer-revenue-jp">Hudl</a> · <a href="https://www.soccer-king.jp/news/world/world_other/20260819/2040034.html">Soccer King</a></p>
+  <div class="take"><b>0円に近い理由：</b>日本の契約期間は短いです。契約満了の半年前から、選手は海外クラブと契約できます。獲得するクラブは移籍金を払いません。<b>注意：</b>23歳以下の選手には育成補償金がかかります。そのため、契約が切れる23歳超の選手が最も安く獲得できます。</div>
+</section>
+
+<section id="salary">
+  <h2>取引2：年俸はいくらか</h2>
+  <p class="lede">J1・J2の中堅選手の年俸は、イスラエルで質の高い外国人選手が得る額を大きく下回ります。</p>
+  <div class="bars" role="img" aria-label="年俸（ユーロ）：J2最低2.1万、J1最低2.7万、1年目の上限6.9万、J1平均約17.7万、イスラエル7人目の外国人の最低20万、マッカビ・ハイファの外国人40万、オランダの外国人最低56.1万">
+    <div class="bar wide"><span>J2 最低額</span><div class="t"><i class="q" style="width:4%"></i></div><span class="v"><bdi>€21K</bdi></span></div>
+    <div class="bar wide"><span>J1 最低額</span><div class="t"><i class="q" style="width:5%"></i></div><span class="v"><bdi>€27K</bdi></span></div>
+    <div class="bar wide"><span>1年目の上限</span><div class="t"><i class="q" style="width:12%"></i></div><span class="v"><bdi>€69K</bdi></span></div>
+    <div class="bar wide"><span>J1 平均（推定）</span><div class="t"><i class="q" style="width:32%"></i></div><span class="v"><bdi>~€177K</bdi></span></div>
+    <div class="bar wide"><span>イスラエル：外国人7人目の最低額</span><div class="t"><i style="width:36%"></i></div><span class="v"><bdi>€200K</bdi></span></div>
+    <div class="bar wide"><span>マッカビ・ハイファの外国人</span><div class="t"><i style="width:71%"></i></div><span class="v"><bdi>~€400K</bdi></span></div>
+    <div class="bar wide"><span>オランダ：外国人の最低額</span><div class="t"><i class="s" style="width:100%"></i></div><span class="v"><bdi>€561K</bdi></span></div>
+  </div>
+  <div class="legend"><span><i class="q"></i>日本</span><span><i></i>イスラエル</span><span><i class="s"></i>オランダ</span></div>
+  <p class="cap">年間の総支給額 · <a href="https://www.jleague.jp/news/article/29016/">J.League</a> · <a href="https://www.ice.co.il/sport_news/news/article/1136046">ice</a> · <a href="https://www.jpost.com/israel-news/sports/article-860280">JPost</a> · <a href="https://www.everaert.nl/en/conditions-for-attracting-international-football-talent-to-be-relaxed/">Everaert</a> · J1平均：<a href="https://www.nenshuu.net/magazine/pages.php?pages_id=313">nenshuu</a>（非公式）</p>
+  <div class="take"><b>これが売り文句です：</b>オランダでは、このクラスの選手を<bdi>€561K</bdi>未満で獲得できません。イスラエルならそれより安く獲得できます。それでも日本での年俸よりずっと高い額です。</div>
+</section>
+
+<section id="israel">
+  <h2>イスラエルについて知っておくこと</h2>
+  <p class="lede">前例はなく、外国人枠があり、治安が最大の障害です。</p>
+  <div class="grid2">
+    <ul class="clean">
+      <li><span><b>前例：</b>イスラエル・プレミアリーグに日本人選手は見つかりませんでした。2部（リーガ・レウミット）に1人だけいます。村山拓哉、ハポエル・ペタフ・ティクヴァ、2019年です。</span></li>
+      <li><span><b>外国人枠：</b>最大8人。7人目は年俸<bdi>€200K</bdi>以上、8人目は<bdi>€500K</bdi>以上の契約に限ります。2026-27年の枠は最終承認前です。</span></li>
+      <li><span><b>既存のつながり：</b>ネタ・ラヴィはガンバ大阪、ディーン・ダヴィドは横浜でプレーしています。日本ではイスラエル人選手がすでに知られています。</span></li>
+    </ul>
+    <ul class="clean">
+      <li class="x"><span><b>治安：</b>日本の家族は外務省の危険情報レベルを確認します。レベル3だとほとんど誰も来ません。現在、イスラエルの大部分はレベル2です。</span></li>
+      <li class="x"><span><b>現状の課題：</b>クラブはすでに外国人選手の獲得に苦戦しており、アフリカやバルカンに目を向けています。</span></li>
+      <li class="x"><span><b>契約に必須：</b>治安が悪化した場合の退出条項。</span></li>
+    </ul>
+  </div>
+  <p class="cap"><a href="https://en.wikipedia.org/wiki/Takuya_Murayama">村山拓哉</a> · <a href="https://www.jpost.com/israel-news/sports/article-860280">外国人枠</a> · <a href="https://www.anzen.mofa.go.jp/info/arealeaveinfolist_13.html">外務省</a> · <a href="https://www.ynetnews.com/culture/article/bj4ar1x00c">Ynet</a></p>
+</section>
+
+<section id="timing">
+  <h2>いつ選手を連れてくるか</h2>
+  <p class="lede">2026-27年から日本のシーズンは6月に終わります。イスラエルの移籍期間が開く時期と重なります。</p>
+  <div class="tlw"><div class="tl" role="img" aria-label="カレンダー：日本のシーズンは2026年8月から2027年6月。日本の移籍期間は7月から9月と2月から3月。イスラエルの移籍期間は6月下旬から9月中旬">
+    <div class="tl-row tl-head"><div></div><div>7月</div><div>8月</div><div>9月</div><div>10月</div><div>11月</div><div>12月</div><div>1月</div><div>2月</div><div>3月</div><div>4月</div><div>5月</div><div>6月</div></div>
+    <div class="tl-row"><div>日本のシーズン</div><div></div><div class="on-q">8.8</div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q"></div><div class="on-q">6.6</div></div>
+    <div class="tl-row"><div>日本の移籍期間</div><div class="on-l">1.7</div><div class="on-l"></div><div class="on-l">16.9</div><div></div><div></div><div></div><div></div><div class="on-l">1.2</div><div class="on-l">3.3</div><div></div><div></div><div></div></div>
+    <div class="tl-row"><div>イスラエルの移籍期間</div><div class="on-s">29.6</div><div class="on-s"></div><div class="on-s">16.9</div><div></div><div></div><div></div><div class="on-p">?</div><div></div><div></div><div></div><div></div><div class="on-s">開始</div></div>
+    <div class="tl-row"><div>スカウト</div><div></div><div></div><div></div><div></div><div class="on-p">今</div><div class="on-p"></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div></div>
+  <p class="cap">イスラエルの1月の移籍期間と日本の契約満了日は未確認です · <a href="https://sakanowa.jp/topics/111172">sakanowa</a> · <a href="https://sports.walla.co.il/item/3841301">Walla</a></p>
+  <div class="best">
+    <div class="panel top"><b>2027年6〜7月</b><span>最適な時期：日本の契約が満了し、イスラエルの移籍期間が開きます。</span></div>
+    <div class="panel"><b>2027年2〜3月</b><span>日本で出場機会のない選手のレンタル。</span></div>
+    <div class="panel"><b>今から1月まで</b><span>日本でのスカウト、映像確認、面談。</span></div>
+  </div>
+</section>
+
+<section id="agent">
+  <h2>エージェントになるには</h2>
+  <p class="lede">4つのステップです。現在、手数料に拘束力のある上限はありません。</p>
+  <div class="grid2">
+    <ol class="steps">
+      <li><span><a href="https://legal.fifa.com/transfer-system/agents/how-to-become-a-licenced-football-agent">FIFA</a>のエージェント試験に合格する：20問、合格には75%が必要です。2026年は4月に実施されました。</span></li>
+      <li><span>ライセンス料を支払う：初年度は<bdi>$600</bdi>です。</span></li>
+      <li><span>イスラエルサッカー協会と日本の<bdi>JFA</bdi>に登録する。</span></li>
+      <li><span>既存の日本のエージェント会社（例：<bdi>SARCLE</bdi>、約50選手）と提携し、手数料を分け合う。</span></li>
+    </ol>
+    <div class="panel">
+      <h3>手数料</h3>
+      <p style="font-size:15px">FIFAの上限は、欧州の裁判所の判断により2023年から停止中です：選手の年俸の3〜5%、獲得側クラブも代理する場合は最大10%。実際は市場で決まり、通常は<b>選手の年俸の5〜10%</b>です。</p>
+      <p style="font-size:14px;color:var(--quiet);margin:0">ルールが復活した場合、選手と売り手クラブの両方を代理することはできなくなります。</p>
+      <p class="cap" style="margin-bottom:0"><a href="https://agentpro.academy/guide/ffar-fifa-agent-regulations-status">AgentPro</a> · <a href="https://inside.fifa.com/en/news/club-agent-service-fees-reach-new-heights-2025">FIFA</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="biz">
+  <h2>収益の仕組み</h2>
+  <p class="lede">収入源は3つです。数字は3年目を想定した当方の試算で、実測値ではありません。</p>
+  <div class="scen">
+    <div class="panel"><span class="l">保守的</span><b><bdi>~€17K</bdi></b><p>年1人、年俸の手数料のみ。</p></div>
+    <div class="panel base"><span class="l">基本</span><b><bdi>~€175K</bdi></b><p>年2人、マッカビからのリテイナー、2年に1回の次の売却。</p></div>
+    <div class="panel"><span class="l">楽観的</span><b><bdi>~€450K</bdi></b><p>年3〜4人、クラブ数の拡大、年2回の次の売却。</p></div>
+  </div>
+  <p class="cap">前提：年俸<bdi>€250K</bdi>、3年契約、手数料7%、リテイナー月<bdi>€2,500</bdi>、次の売却は<bdi>€1.5M</bdi>で手数料10%、年間経費<bdi>~€35K</bdi>。早期に日本へ帰る選手はいない前提です。</p>
+
+  <div class="grid2" style="margin-top:32px">
+    <div>
+      <h3>3つの収入源</h3>
+      <ol class="steps">
+        <li><span><b>年俸の手数料：</b>年俸の5〜10%。契約期間中、毎年入ります。</span></li>
+        <li><span><b>クラブからのリテイナー：</b>マッカビが「日本代表」として毎月支払い、契約ごとにボーナスもあります。</span></li>
+        <li><span><b>次の売却：</b>選手がイスラエルからヨーロッパへ売られる時です。大きな収入はここにあります。</span></li>
+      </ol>
+    </div>
+    <div>
+      <h3>最初の選手は成功が必須</h3>
+      <ul class="clean">
+        <li><span>24〜27歳：育成補償金がかからないため</span></li>
+        <li><span>J1のレギュラー、またはJ2のスター選手で、契約最終年</span></li>
+        <li><span>移住に前向きな家族：すぐ帰国しないため</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px">進め方を効率化するアイデア</h3>
+  <div class="grid2">
+    <ul class="clean">
+      <li><span><b>ターゲットリスト：</b>2027年に契約が切れる23〜27歳のJ1・J2全選手で、出場1,500分超。<bdi>Wyscout</bdi>は日本の全リーグをカバーしています。</span></li>
+      <li><span><b>大学リーグ：</b>ヨーロッパで体系的に見ている人は見つかりませんでした。言語の面であなたに強みがあります。</span></li>
+      <li><span><b>オプション付きレンタル</b>を最初の選手に使い、クラブのリスクを下げます。</span></li>
+    </ul>
+    <ul class="clean">
+      <li><span><b>公式な提携：</b>マッカビとJ2クラブの間で。フェイエノールトと浦和、エバートンと名古屋のような形です。</span></li>
+      <li><span><b>受け入れパッケージ：</b>住居、言語、テルアビブの日本人コミュニティ、家族のサポート。</span></li>
+      <li><span><b>日本のスポンサー：</b>日本人選手は日本の企業とファンを連れてきます。クラブへの売り文句になります。</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="sources">
+  <h2>出典</h2>
+  <p class="lede">このテーマにメタ分析や学術研究はありません。データは公式機関と報道によるものです。</p>
+  <details>
+    <summary>すべての出典（25）</summary>
+    <ul class="srcs">
+      <li><a href="https://football-observatory.com/IMG/sites/b5wp/2019/wp292/en/">CIES Football Observatory</a>：海外の日本人選手</li>
+      <li><a href="https://www.hudl.com/blog/japan-pathways-europe-wyscout">Hudl / NHK</a>：欧州の114選手、キャリアパス</li>
+      <li><a href="https://www.hudl.com/blog/jleague-player-export-strategy-transfer-revenue-jp">Hudl</a>：有償移籍は11.3%、年齢24.8歳</li>
+      <li><a href="https://note.com/footballjp/n/na96b4fbad155?hl=en">footballjp</a>：リーグ別の内訳</li>
+      <li><a href="https://qoly.jp/q1/17819462">Qoly</a>：渡欧と帰国</li>
+      <li><a href="https://jleagueregista.com/europe-syndrome-jleague-returns/">JLeagueRegista</a>：欧州からの帰国</li>
+      <li><a href="https://www.soccer-king.jp/news/world/world_other/20260819/2040034.html">Soccer King</a>：移籍金と売却</li>
+      <li><a href="https://x.com/tyuu__bou/status/1938443022037033170">内野航太郎の育成補償金</a></li>
+      <li><a href="https://grapo.net/2025/12/25/27655/">grapo</a>：「0円移籍」</li>
+      <li><a href="https://www.jleague.jp/news/article/29016/">J.League</a>：契約制度改革と最低年俸</li>
+      <li><a href="https://www.nenshuu.net/magazine/pages.php?pages_id=313">nenshuu</a>：平均年俸（非公式）</li>
+      <li><a href="https://www.everaert.nl/en/conditions-for-attracting-international-football-talent-to-be-relaxed/">Everaert</a>：オランダの外国人最低年俸</li>
+      <li><a href="https://www.ice.co.il/sport_news/news/article/1136046">ice</a>：マッカビ・ハイファの予算と年俸</li>
+      <li><a href="https://www.jpost.com/israel-news/sports/article-860280">Jerusalem Post</a>：外国人枠</li>
+      <li><a href="https://www.ynetnews.com/culture/article/bj4ar1x00c">Ynet</a>：外国人獲得の難しさ</li>
+      <li><a href="https://en.wikipedia.org/wiki/Takuya_Murayama">Wikipedia</a>：村山拓哉</li>
+      <li><a href="https://www.anzen.mofa.go.jp/info/arealeaveinfolist_13.html">外務省</a>：危険情報レベル</li>
+      <li><a href="https://sakanowa.jp/topics/111172">sakanowa</a>：日本の移籍期間</li>
+      <li><a href="https://sports.walla.co.il/item/3841301">Walla</a>：イスラエルの夏の移籍期間</li>
+      <li><a href="https://legal.fifa.com/transfer-system/agents/how-to-become-a-licenced-football-agent">FIFA Legal</a>：エージェント試験</li>
+      <li><a href="https://inside.fifa.com/en/news/club-agent-service-fees-reach-new-heights-2025">Inside FIFA</a>：エージェント手数料</li>
+      <li><a href="https://agentpro.academy/guide/ffar-fifa-agent-regulations-status">AgentPro</a>：上限規制の現状</li>
+      <li><a href="https://blog.transferroom.com/renowned-japanese-agency-opens-door-to-the-world-on-transferroom">TransferRoom</a>：SARCLE</li>
+      <li><a href="https://www.hudl.com/blog/hudl-renews-multi-year-partnership-with-japan-professional-football-league">Hudl</a>：J.LeagueのWyscout</li>
+      <li><a href="https://readastonvilla.com/2026/08/19/aston-villa-confirm-30m-zion-suzuki-signing-as-emi-martinez-pressure-grows/">Read Aston Villa</a>：鈴木彩艶</li>
+    </ul>
+  </details>
+  <footer>計画はFable 5.2が作成し、Claudeが調査を行い、Fable 5.2が数字を検証しました。法律・税務の助言ではありません。</footer>
+</section>
+</main>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('nav .in a')),map={},box=document.querySelector('nav .in');
+  links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;
+    links.forEach(function(l){l.classList.remove('on')});
+    var a=map[e.target.id];if(!a)return;a.classList.add('on');
+    // move only the tab strip sideways; scrollIntoView would also scroll the page and kill touch scrolling on iPhone
+    var r=a.getBoundingClientRect(),b=box.getBoundingClientRect();
+    if(r.left<b.left||r.right>b.right)box.scrollLeft+=(r.left+r.width/2)-(b.left+b.width/2);
+  })},{rootMargin:'-40% 0px -55% 0px'});
+  document.querySelectorAll('section[id]').forEach(function(s){io.observe(s)});
+})();
+</script>
+</body>
+</html>
